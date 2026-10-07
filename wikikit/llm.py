@@ -55,6 +55,19 @@ def command(engine: str, path: str, cwd: Path, write: bool, model: str = "", out
     return cmd
 
 
+HINTS = (
+    ("requires a newer version", "Codex가 오래됐습니다. 터미널에서 `npm install -g @openai/codex@latest` (Homebrew로 설치했다면 `brew upgrade codex`) 후 다시 실행하세요."),
+    ("not logged in", "AI 도구에 로그인되어 있지 않습니다. 터미널에서 codex(또는 claude)를 한 번 열어 로그인하세요."),
+    ("/login", "AI 도구 로그인이 만료됐습니다. 터미널에서 codex(또는 claude)를 열어 다시 로그인하세요."),
+    ("usage limit", "AI 사용 한도에 걸렸습니다. 한도가 풀리면 다음 실행에서 이어서 합니다."),
+)
+
+
+def hint(text: str) -> str:
+    low = (text or "").lower()
+    return next((h for k, h in HINTS if k.lower() in low), "")
+
+
 def run(cfg: dict, prompt: str, cwd: Path, write: bool = False, timeout: int = 900, model: str = "") -> tuple[bool, str]:
     """(성공, 마지막 응답 텍스트)."""
     engine = cfg.get("engine", "codex")
@@ -75,8 +88,8 @@ def run(cfg: dict, prompt: str, cwd: Path, write: bool = False, timeout: int = 9
         out = out_file.read_text(encoding="utf-8", errors="replace") if out_file and out_file.exists() else (r.stdout or "")
         if r.returncode != 0:
             tail = (r.stderr or r.stdout or "").strip()[-400:]
-            log.warning(f"{engine} 종료 코드 {r.returncode}: {tail}")
-            return False, out.strip() or tail
+            log.warning(f"{engine} 종료 코드 {r.returncode}: {hint(tail) or tail}")
+            return False, hint(tail) or out.strip() or tail
         return True, out.strip()
     except subprocess.TimeoutExpired:
         log.warning(f"{engine} 시간 초과({timeout}s)")
