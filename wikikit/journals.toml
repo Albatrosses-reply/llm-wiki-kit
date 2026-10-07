@@ -1,0 +1,62 @@
+# 저널 묶음. 설정 마법사(Actions → ① 설정)에서 고른 묶음만 수집한다.
+# 여기 없는 저널은 마법사의 '추가 저널' 칸에 이름이나 ISSN을 적으면 자동으로 찾아 넣는다.
+# issn은 하나만 있어도 된다. 직접 고쳐도 된다(TOML 문법).
+
+[groups.realestate_core]
+label = "부동산 핵심"
+journals = [
+  { abbrev = "REE",   name = "Real Estate Economics",                          issn = ["1080-8620", "1540-6229"] },
+  { abbrev = "JREFE", name = "Journal of Real Estate Finance and Economics",   issn = ["0895-5638", "1573-045X"] },
+  { abbrev = "JUE",   name = "Journal of Urban Economics",                     issn = ["0094-1190", "1095-9068"] },
+  { abbrev = "RSUE",  name = "Regional Science and Urban Economics",           issn = ["0166-0462"] },
+  { abbrev = "JHE",   name = "Journal of Housing Economics",                   issn = ["1051-1377", "1096-0791"] },
+  { abbrev = "JRER",  name = "Journal of Real Estate Research",                issn = ["0896-5803", "2691-1175"] },
+]
+
+[groups.realestate_ext]
+label = "부동산 확장 (주택·도시)"
+journals = [
+  { abbrev = "HS",    name = "Housing Studies",                                issn = ["0267-3037", "1466-1810"] },
+  { abbrev = "HPD",   name = "Housing Policy Debate",                          issn = ["1051-1482", "2152-050X"] },
+  { abbrev = "US",    name = "Urban Studies",                                  issn = ["0042-0980", "1360-063X"] },
+  { abbrev = "JPR",   name = "Journal of Property Research",                   issn = ["0959-9916", "1466-4453"] },
+  { abbrev = "JEREF", name = "Journal of European Real Estate Research",       issn = ["1753-9269"] },
+  { abbrev = "JREL",  name = "Journal of Real Estate Literature",              issn = ["0927-7544"] },
+  { abbrev = "LUP",   name = "Land Use Policy",                                issn = ["0264-8377"] },
+  { abbrev = "Cities", name = "Cities",                                        issn = ["0264-2751"] },
+]
+
+[groups.economics]
+label = "경제학 주요 저널"
+journals = [
+  { abbrev = "AER",    name = "American Economic Review",                      issn = ["0002-8282", "1944-7981"] },
+  { abbrev = "ECTA",   name = "Econometrica",                                  issn = ["0012-9682", "1468-0262"] },
+  { abbrev = "JPE",    name = "Journal of Political Economy",                  issn = ["0022-3808", "1537-534X"] },
+  { abbrev = "QJE",    name = "Quarterly Journal of Economics",                issn = ["0033-5533", "1531-4650"] },
+  { abbrev = "REStud", name = "Review of Economic Studies",                    issn = ["0034-6527", "1467-937X"] },
+  { abbrev = "AEJ:Pol", name = "AEJ: Economic Policy",                         issn = ["1945-7731", "1945-774X"] },
+  { abbrev = "AEJ:App", name = "AEJ: Applied Economics",                       issn = ["1945-7782", "1945-7790"] },
+  { abbrev = "REStat", name = "Review of Economics and Statistics",            issn = ["0034-6535", "1530-9142"] },
+  { abbrev = "JPubE",  name = "Journal of Public Economics",                   issn = ["0047-2727", "1879-2316"] },
+  { abbrev = "JME",    name = "Journal of Monetary Economics",                 issn = ["0304-3932", "1873-1295"] },
+]
+
+[groups.finance]
+label = "재무 주요 저널"
+journals = [
+  { abbrev = "JF",   name = "Journal of Finance",                              issn = ["0022-1082", "1540-6261"] },
+  { abbrev = "JFE",  name = "Journal of Financial Economics",                  issn = ["0304-405X", "1879-2774"] },
+  { abbrev = "RFS",  name = "Review of Financial Studies",                     issn = ["0893-9454", "1465-7368"] },
+  { abbrev = "JFQA", name = "Journal of Financial and Quantitative Analysis",  issn = ["0022-1090", "1756-6916"] },
+  { abbrev = "RoF",  name = "Review of Finance",                               issn = ["1572-3097", "1573-692X"] },
+]
+
+[groups.management]
+label = "경영·경영정보 주요 저널"
+journals = [
+  { abbrev = "MS",     name = "Management Science",                            issn = ["0025-1909", "1526-5501"] },
+  { abbrev = "ISR",    name = "Information Systems Research",                  issn = ["1047-7047", "1526-5536"] },
+  { abbrev = "MISQ",   name = "MIS Quarterly",                                 issn = ["0276-7783", "2162-9730"] },
+  { abbrev = "OrgSci", name = "Organization Science",                          issn = ["1047-7039", "1526-5455"] },
+  { abbrev = "SMJ",    name = "Strategic Management Journal",                  issn = ["0143-2095", "1097-0266"] },
+]

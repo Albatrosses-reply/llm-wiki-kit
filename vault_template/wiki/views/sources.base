@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.inFolder("wiki/sources")
+views:
+  - type: table
+    name: 전체 논문
+    order: [file.name, year, venue, status, human_sections_done, summary]
+    sort:
+      - property: year
+        direction: DESC
+  - type: table
+    name: 내가 아직 안 다듬은 것
+    filters:
+      and:
+        - human_sections_done != true
+    order: [file.name, year, venue, read_scope, summary]
+  - type: table
+    name: 초록만 읽은 것 (PDF 넣으면 다시 씀)
+    filters:
+      and:
+        - read_scope == "초록만"
+    order: [file.name, year, venue, doi]

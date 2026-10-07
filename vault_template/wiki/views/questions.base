@@ -1,0 +1,7 @@
+filters:
+  and:
+    - file.inFolder("wiki/questions")
+views:
+  - type: table
+    name: 연구 질문
+    order: [file.name, status, summary, updated]

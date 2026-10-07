@@ -1,0 +1,7 @@
+filters:
+  and:
+    - file.inFolder("wiki/concepts")
+views:
+  - type: table
+    name: 개념
+    order: [file.name, kind, status, summary]

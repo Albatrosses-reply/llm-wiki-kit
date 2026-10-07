@@ -1,0 +1,6 @@
+{
+  "userIgnoreFilters": ["raw/text/"],
+  "newFileLocation": "folder",
+  "newFileFolderPath": "wiki/questions",
+  "attachmentFolderPath": "raw"
+}
